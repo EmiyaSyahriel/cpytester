@@ -17,6 +17,7 @@ endef
 all : ./bin/entry.elf ./bin/forloopa_gcc.so ./bin/forloopp_gcc.so ./bin/memcpy_gcc.so ./bin/stdcopy_gcc.so ./bin/forloopa_clang.so ./bin/forloopp_clang.so ./bin/memcpy_clang.so ./bin/stdcopy_clang.so
 
 test : all
+	echo "\n ==== Testing session begins"
 	@$(call testfn,forloopa_gcc)
 	@$(call testfn,forloopp_gcc)
 	@$(call testfn,memcpy_gcc)
