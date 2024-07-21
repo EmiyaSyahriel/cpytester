@@ -35,6 +35,6 @@ int main(int argc, const char** argv)
     }
     clock_gettime(CLOCK_MONOTONIC, &end);
 
-    printf("Method %s requires %lins to run\n", argv[1], end.tv_nsec - start.tv_nsec);
+    printf("%s = %lins\n", argv[1], end.tv_nsec - start.tv_nsec);
     return 0;
 }
