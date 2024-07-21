@@ -27,26 +27,26 @@ test : all
 	@$(call testfn,memcpy_clang)
 	@$(call testfn,stdcopy_clang)
 
-./bin/%.elf : ./%.c
+./bin/%.elf : ./core/%.c
 	@$(call checkbin)
 	$(GCC) -o $@ $(CFLAG) -ldl $<
 	strip -x $@
 
-./bin/%_clang.so : ./%.c
+./bin/%_clang.so : ./tests/%.c
 	@$(call checkbin)
 	$(CLANG) -o $@ $(CFLAG) -shared $<
 	strip -x $@
 
-./bin/%_gcc.so : ./%.c
+./bin/%_gcc.so : ./tests/%.c
 	@$(call checkbin)
 	$(GCC) -o $@ $(CFLAG) -shared $<
 	strip -x $@
 
-./bin/%_clang.so : ./%.cpp
+./bin/%_clang.so : ./tests/%.cpp
 	@$(call checkbin)
 	$(CLANGXX) -o $@ $(CFLAG) -shared $<
 	strip -x $@
 
-./bin/%_gcc.so : ./%.cpp
+./bin/%_gcc.so : ./tests/%.cpp
 	$(GXX) -o $@ $(CFLAG) -shared $<
 	strip -x $@
